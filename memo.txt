@@ -1,0 +1,25 @@
+//电子邮件验证也许是中最常用的网页表单验证，此代码除了验证电子邮件地址，也可以选择检查邮件域所属 DNS 中的 MX 记录，使邮件验证功能更加强大。
+
+    function is_valid_email($email, $test_mx = false)  
+    {  
+    if(eregi(“^([_a-z0-9-]+)(\.[_a-z0-9-]+)*@([a-z0-9-]+)(\.[a-z0-9-]+)*(\.[a-z]{2,4})$”, $email))  
+    if($test_mx)  
+    {  
+    list($username, $domain) = split(“@”, $email);  
+    return getmxrr($domain, $mxrecords);  
+    }  
+    else 
+    return true;  
+    else 
+    return false;  
+    } 
+//头像上传流程upload->check->rename->move->ok?
+//用户头像存放在文件中，在数据库中保存其url
+////upload->check->rename->move->thumb->move
+
+//电子邮件和电话号码的验证
+//email->check phone->check 
+
+
+//用魔术常量（查阅php手册（语法参考->常量））来代替一大串重复使用的字符，比如
+//E:/wamp/www/userManagement0.3/Image/avatar
